@@ -1,3 +1,15 @@
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: ghostwhite;
+    justify-content: space-around;
+}
+
 li {
     display: inline;
     padding: 30px;

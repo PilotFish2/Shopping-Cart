@@ -41,7 +41,7 @@ export default function Checkout({ cartItems, setCartItems }) {
               <tr key={item.id}>
                 <td>{item.title}</td>
                 <td>{item.price.toFixed(2)} €</td>
-                <td>{item.quantity}</td>
+                <td data-testid={`quantity-${item.id}`}>{item.quantity}</td>
                 <td>{(item.quantity * item.price).toFixed(2)} €</td>
                 <td>
                   {" "}
