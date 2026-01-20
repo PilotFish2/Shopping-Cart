@@ -4,7 +4,7 @@ import classes from "./Checkout.module.css";
 export default function Checkout({ cartItems, setCartItems }) {
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
-    0
+    0,
   );
 
   const deleteItem = (id) =>
@@ -18,7 +18,7 @@ export default function Checkout({ cartItems, setCartItems }) {
         return prev.filter((item) => item.id !== id);
       }
       return prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + num } : item
+        item.id === id ? { ...item, quantity: item.quantity + num } : item,
       );
     });
   };
@@ -42,7 +42,9 @@ export default function Checkout({ cartItems, setCartItems }) {
                 <td>{item.title}</td>
                 <td>{item.price.toFixed(2)} €</td>
                 <td data-testid={`quantity-${item.id}`}>{item.quantity}</td>
-                <td>{(item.quantity * item.price).toFixed(2)} €</td>
+                <td data-testid={`item-total-${item.id}`}>
+                  {(item.quantity * item.price).toFixed(2)} €
+                </td>
                 <td>
                   {" "}
                   <button onClick={() => changeQuantity(-1, item.id)}>-</button>
