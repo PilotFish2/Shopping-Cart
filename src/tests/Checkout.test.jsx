@@ -152,4 +152,18 @@ describe("Checkout component", () => {
 
     expect(screen.queryByText(testdata[0].title)).not.toBeInTheDocument();
   });
+
+  it("shows a message when the cart is empty", () => {
+    render(
+      <MemoryRouter>
+        <Checkout cartItems={[]} setCartItems={() => {}} />
+      </MemoryRouter>,
+    );
+
+    expect(
+      screen.getByText("Please add some Items to your Cart."),
+    ).toBeInTheDocument();
+
+    expect(screen.queryByRole("table")).not.toBeInTheDocument();
+  });
 });

@@ -1,5 +1,6 @@
 import Navbar from "../Navbar/Navbar";
 import classes from "./Checkout.module.css";
+import { Link } from "react-router-dom";
 
 export default function Checkout({ cartItems, setCartItems }) {
   const total = cartItems.reduce(
@@ -23,6 +24,19 @@ export default function Checkout({ cartItems, setCartItems }) {
     });
   };
 
+  if (cartItems.length === 0) {
+    return (
+      <>
+        <Navbar cartItems={cartItems} />
+        <div>
+          <p>Please add some Items to your Cart.</p>
+          <p>
+            Return to the <Link to="/Store">Store</Link> to add items.
+          </p>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <Navbar cartItems={cartItems} />
