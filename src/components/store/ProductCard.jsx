@@ -28,7 +28,7 @@ export default function ProductCard({ item, setCartItems }) {
 
       if (existingItem) {
         return prevCartItems.map((x) =>
-          x.id === item.id ? { ...x, quantity: x.quantity + quantity } : x
+          x.id === item.id ? { ...x, quantity: x.quantity + quantity } : x,
         );
       } else {
         return [...prevCartItems, { ...item, quantity }];
@@ -37,7 +37,7 @@ export default function ProductCard({ item, setCartItems }) {
   };
   return (
     <div className={classes.card}>
-      <img src={item.image}></img>
+      <img src={item.image} alt={item.title} />
       <h4>{item.title}</h4>
       <div className={classes.properties}>
         <div>

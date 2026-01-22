@@ -1,4 +1,3 @@
-// App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState } from "react";
 import Homepage from "./components/homepage/Homepage";

@@ -28,8 +28,8 @@ export default function Checkout({ cartItems, setCartItems }) {
     return (
       <>
         <Navbar cartItems={cartItems} />
-        <div>
-          <p>Please add some Items to your Cart.</p>
+        <div className={classes.empty}>
+          <p>Please add some items to your cart.</p>
           <p>
             Return to the <Link to="/Store">Store</Link> to add items.
           </p>
@@ -37,6 +37,7 @@ export default function Checkout({ cartItems, setCartItems }) {
       </>
     );
   }
+
   return (
     <>
       <Navbar cartItems={cartItems} />

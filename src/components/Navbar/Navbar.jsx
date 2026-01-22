@@ -4,7 +4,7 @@ import classes from "./Navbar.module.css";
 export default function Navbar({ cartItems }) {
   const displayAmount = cartItems.reduce(
     (amount, item) => amount + item.quantity,
-    0
+    0,
   );
 
   return (
