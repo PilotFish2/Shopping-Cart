@@ -53,17 +53,8 @@ button {
     font-size: 1rem;
 }
 
-button:hover {
-    background-color: #e5e7eb;
-}
-
 button:last-child {
-    color: #dc2626;
     font-weight: 600;
-}
-
-button:last-child:hover {
-    background-color: #fee2e2;
 }
 
 tr:last-child td {

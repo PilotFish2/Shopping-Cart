@@ -37,30 +37,34 @@ export default function ProductCard({ item, setCartItems }) {
   };
   return (
     <div className={classes.card}>
-      <img src={item.image} alt={item.title} />
-      <h4>{item.title}</h4>
-      <div className={classes.properties}>
-        <div>
+      <div className={classes.imgContainer}>
+        <img src={item.image} alt={item.title} />
+      </div>
+
+      <div className={classes.cardContent}>
+        <h4>{item.title}</h4>
+
+        <div className={classes.properties}>
+          <p>{item.price.toFixed(2)} €</p>
           <ProductStars rating={item.rating.rate} count={item.rating.count} />
         </div>
       </div>
-      <p>{item.price.toFixed(2)} €</p>
 
-      <div>
-        <button onClick={changeQuantity} value="-1">
-          -
-        </button>
-        <input
-          type="number"
-          value={quantity}
-          onChange={inputQuantity}
-          min="0"
-        />
-        <button onClick={changeQuantity} value="1">
-          +
+      <div className={classes.actions}>
+        <div className={classes.quantityPanel}>
+          <button value="-1" onClick={changeQuantity}>
+            -
+          </button>
+          <input type="number" value={quantity} onChange={inputQuantity} />
+          <button value="1" onClick={changeQuantity}>
+            +
+          </button>
+        </div>
+
+        <button className={classes.btnToCart} onClick={addToCart}>
+          Add to Cart
         </button>
       </div>
-      <button onClick={addToCart}>Add to Cart</button>
     </div>
   );
 }
