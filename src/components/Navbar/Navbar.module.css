@@ -3,29 +3,31 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    height: 40px;
+    z-index: 100;
 }
 
 nav ul {
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #374151;
     color: white;
     gap: 5rem;
-    padding: 0.7em;
+
 }
 
-.link {
-    color: #374151;
+nav a {
+    color: white;
     text-decoration: none;
 }
 
 .active {
     color: #2563eb;
     font-weight: 600;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 2px;
 }
-
 
 .cartBadge {
     background-color: #2563eb;
@@ -33,4 +35,10 @@ nav ul {
     border-radius: 999px;
     padding: 0.25rem 0.5rem;
     font-size: 0.8rem;
+    font-weight: 700;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #93c5fd
 }
