@@ -7,7 +7,7 @@ export default function Store({ cartItems, setCartItems }) {
     <>
       <Navbar cartItems={cartItems} />
       <main className={classes.store}>
-        <h2 className={classes.heading}>Store</h2>
+        <h2 className={classes.heading}>Our Bestsellers</h2>
         <ProductGrid setCartItems={setCartItems} />
       </main>
     </>
