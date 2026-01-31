@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function ProductCard({ item, setCartItems }) {
   const [quantity, setQuantity] = useState(0);
+  const [wasAdded, setWasAdded] = useState(false);
 
   const changeQuantity = (e) => {
     setQuantity((prevQuantity) => {
@@ -34,7 +35,12 @@ export default function ProductCard({ item, setCartItems }) {
         return [...prevCartItems, { ...item, quantity }];
       }
     });
+    setWasAdded(true);
+    setTimeout(() => {
+      setWasAdded(false);
+    }, 300);
   };
+
   return (
     <div className={classes.card}>
       <div className={classes.imgContainer}>
@@ -60,8 +66,12 @@ export default function ProductCard({ item, setCartItems }) {
             +
           </button>
         </div>
-
-        <button className={classes.btnToCart} onClick={addToCart}>
+        <button
+          className={`${classes.btnToCart} ${wasAdded ? classes.added : ""}`}
+          onClick={() => {
+            addToCart();
+          }}
+        >
           Add to Cart
         </button>
       </div>
