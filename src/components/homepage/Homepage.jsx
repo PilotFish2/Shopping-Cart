@@ -1,6 +1,7 @@
 import Navbar from "../Navbar/Navbar";
 import SimpleSlider from "../showcase/Showcase";
 import classes from "./Homepage.module.css";
+import { Link } from "react-router-dom";
 
 export default function Homepage({ cartItems }) {
   return (
@@ -22,6 +23,9 @@ export default function Homepage({ cartItems }) {
 
         <section className={classes.cta}>
           <p>Visit our Store Now!</p>
+          <Link to="/Store" className={classes.ctaButton}>
+            Go to Store
+          </Link>
         </section>
       </main>
     </>

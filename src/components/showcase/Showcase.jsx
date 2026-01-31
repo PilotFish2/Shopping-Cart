@@ -24,12 +24,12 @@ export default function SimpleSlider() {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
-    speed: 2000,
-    autoplaySpeed: 2000,
+    autoplay: true,
+    speed: 1500,
+    autoplaySpeed: 1500,
     cssEase: "linear",
     centerMode: true,
-    centerPadding: "40px",
+    centerPadding: "70px",
   };
 
   return (
