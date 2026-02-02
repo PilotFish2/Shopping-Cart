@@ -1,12 +1,15 @@
 import Navbar from "../Navbar/Navbar";
 import classes from "./Checkout.module.css";
 import { Link } from "react-router-dom";
+import { useMemo } from "react";
 
 export default function Checkout({ cartItems, setCartItems }) {
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0,
-  );
+  const totalPrice = useMemo(() => {
+    return cartItems.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0,
+    );
+  }, [cartItems]);
 
   const deleteItem = (id) =>
     setCartItems((prev) => prev.filter((item) => item.id !== id));
@@ -76,7 +79,7 @@ export default function Checkout({ cartItems, setCartItems }) {
               <td></td>
               <td></td>
               <td>Total:</td>
-              <td> {total.toFixed(2)} €</td>
+              <td> {totalPrice.toFixed(2)} €</td>
             </tr>
           </tbody>
         </table>
