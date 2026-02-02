@@ -12,11 +12,12 @@ export default function SimpleSlider() {
 
   useEffect(() => {
     fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        const items = json.map((item) => item);
-        setShopItems(items);
-      });
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch products");
+        return res.json();
+      })
+      .then(setShopItems)
+      .catch(console.error);
   }, []);
 
   var settings = {
@@ -24,10 +25,10 @@ export default function SimpleSlider() {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
+    autoplay: true,
+    speed: 1500,
+    autoplaySpeed: 2400,
+    cssEase: "ease-in-out",
     centerMode: true,
     centerPadding: "40px",
   };

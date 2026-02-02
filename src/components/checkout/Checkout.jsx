@@ -31,15 +31,16 @@ export default function Checkout({ cartItems, setCartItems }) {
     return (
       <>
         <Navbar cartItems={cartItems} />
-        <div>
-          <p>Please add some Items to your Cart.</p>
+        <div className={classes.empty}>
+          <p>Please add some items to your cart.</p>
           <p>
-            Return to the <Link to="/Store">Store</Link> to add items.
+            Return to the <Link to="/Store">Store</Link>.
           </p>
         </div>
       </>
     );
   }
+
   return (
     <>
       <Navbar cartItems={cartItems} />
@@ -52,7 +53,7 @@ export default function Checkout({ cartItems, setCartItems }) {
               <th>Price</th>
               <th>Quantity</th>
               <th>Sum</th>
-              <th></th>
+              <th colSpan={3}></th>
             </tr>
             {cartItems?.map((item) => (
               <tr key={item.id}>
@@ -64,22 +65,37 @@ export default function Checkout({ cartItems, setCartItems }) {
                 </td>
                 <td>
                   {" "}
-                  <button onClick={() => changeQuantity(-1, item.id)}>-</button>
+                  <button
+                    className={classes.btnDec}
+                    onClick={() => changeQuantity(-1, item.id)}
+                  >
+                    -
+                  </button>
                 </td>
                 <td>
                   {" "}
-                  <button onClick={() => changeQuantity(1, item.id)}>+</button>
+                  <button
+                    className={classes.btnInc}
+                    onClick={() => changeQuantity(1, item.id)}
+                  >
+                    +
+                  </button>
                 </td>
                 <td>
-                  <button onClick={() => deleteItem(item.id)}>x</button>
+                  <button
+                    className={classes.btnRemove}
+                    onClick={() => deleteItem(item.id)}
+                  >
+                    ×
+                  </button>
                 </td>
               </tr>
             ))}
             <tr>
-              <td></td>
-              <td></td>
+              <td colSpan={2}></td>
               <td>Total:</td>
               <td> {totalPrice.toFixed(2)} €</td>
+              <td colSpan={3}></td>
             </tr>
           </tbody>
         </table>
